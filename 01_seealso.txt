@@ -1,0 +1,57 @@
+The Navigation Timing API provides data that can be used to measure the performance of a website. Unlike other JavaScript-based mechanisms that have been used for the same purpose, this API can provide end-to-end latency data that can be more useful and accurate.
+
+Navigation Timing APIはwebサイトパフォーマンスの測定可能なデータを提供します。同じ目的で利用されている他のJavaScriptベースのメカニズムと異なり、このAPIはより有用で正確な、end-to-endの潜在データを提供できます。
+
+
+
+The following example shows how you can measure the perceived loading time
+
+以下の例は、いわゆる「loading time」の測定方法を示しています。
+
+
+（コード略）
+
+
+There are many measured events given in milliseconds that can be accessed through the PerformanceTiming interface. The list of events in order of occurrence are:
+
+（インターフェイス名略）
+
+The window.performance.navigation object stores two attributes that can be used to know if a page load is triggered by a redirect, back/forward button or normal URL load.
+
+window.performance.navigation.type:
+
+
+（表）－ディクリプションのみ
+
+Navigation started by clicking on a link, or entering the URL in the user agent's address bar, or form submission, or initializing through a script operation other than the ones used by TYPE_RELOAD and TYPE_BACK_FORWARD as listed below.
+
+
+Navigation through the reload operation or the location.reload() method.
+
+
+Navigation through a history traversal operation.
+
+
+Any navigation types not defined by values above.
+
+
+window.performance.navigation.redirectCount will indicate how many redirects have taken place until the final page has been reached, if any.
+
+
+The Navigation Timing API can be used to gather performance data on the client side to be sent to a server via XHR as well as measure data that was very difficult to measure by other means such as time to unload a previous page, domain look up time, window.onload total time, etc.
+
+
+Calculate the total time required to load a page:
+
+
+（コード略）
+
+
+Calculate request response times:
+
+
+（コード略）
+
+
+Browser compatibility
+
